@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use 'theme.tokens' as *;
+
+@mixin apply-theme($theme-name) {
+    $theme: map.get($themes, $theme-name);
+    --color-bg: #{map.get($theme, bg)};
+    --color-text: #{map.get($theme, text)};
+    --color-primary: #{map.get($theme, primary)};
+    --color-primary-hover: #{map.get($theme, primary-hover)};
+    --color-error: #{map.get($theme, error)};
+}
+
+html[data-theme='light'] {
+    @include apply-theme(light);
+}
+
+html[data-theme='dark'] {
+    @include apply-theme(dark);
+}

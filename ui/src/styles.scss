@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'styles/theme.scss' as *;
+@use 'styles/taiga-theme.scss' as *;
+@use 'app/main-page/theme.scss' as *;
+@use 'app/auth/theme.scss' as *;
+
+html, body {
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+:root {
+    [tuiAppearance] {
+        font-family: "JetBrains Mono", monospace;
+    }
+}

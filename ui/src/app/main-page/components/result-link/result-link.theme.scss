@@ -1,0 +1,15 @@
+app-result-link {
+    background-color: var(--color-primary);
+
+    button,
+    [tuiButton][tuiAppearance][data-appearance=outline] {
+        --tui-background-base: var(--color-text);
+        --tui-border-normal: var(--color-text);
+        --tui-border-hover: var(--color-text);
+        --tui-text-action: var(--color-text);
+
+        &:hover {
+            --tui-text-action: var(--color-text);
+        }
+    }
+}

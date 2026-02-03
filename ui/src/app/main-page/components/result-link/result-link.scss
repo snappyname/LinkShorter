@@ -1,0 +1,12 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    padding: 0 10px 0 10px;
+}
+
+.link-text {
+    font-size: 24px;
+}

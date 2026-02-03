@@ -1,0 +1,48 @@
+@use 'light.scss' as *;
+@use 'dark.scss' as *;
+
+:root {
+}
+
+[tuiButton][tuiAppearance][data-appearance=outline] {
+    --tui-background-base: var(--color-bg);
+    --tui-border-normal: var(--color-primary);
+    --tui-border-hover: var(--color-primary-hover);
+    --tui-text-action: var(--color-primary);
+
+    &:hover {
+        --tui-text-action: var(--color-primary-hover);
+    }
+}
+
+[tuiButton][tuiAppearance][data-appearance=primary] {
+    --t-bg: var(--color-primary);
+    --tui-text-01: var(--color-text);
+    --tui-text-action: var(--color-primary);
+    --tui-text-action-hover: var(--color-primary-hover);
+    --tui-background-accent-1-hover: var(--color-primary-hover);
+    --tui-background-accent-1-pressed: var(--color-primary-hover);
+}
+
+[tuiTextfield][tuiAppearance][data-appearance=textfield] {
+    --tui-status-negative: var(--color-error);
+    --tui-background-accent-1: var(--color-primary-hover);
+}
+
+table[tuiTable] {
+    --tui-text-secondary: var(--color-text);
+    --tui-background-base: var(--color-bg);
+    --tui-border-normal: var(--color-primary);
+}
+
+/*
+[tuiAppearance] {
+    --tui-background-base: var(--color-bg);
+    --tui-text-01: var(--color-text);
+    --tui-primary: var(--color-primary);
+    --tui-primary-hover: var(--color-primary);
+    --tui-border-normal: var(--color-primary);
+    --tui-border-hover: var(--color-primary-hover);
+    --tui-text-action: var(--color-primary);
+    --tui-text-action-hover: var(--color-primary-hover);
+}*/

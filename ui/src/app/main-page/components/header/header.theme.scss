@@ -1,0 +1,18 @@
+app-header {
+    border-bottom: 2px solid var(--color-primary);
+
+    [tuiSwitch]::after {
+        color: var(--color-primary);
+    }
+
+    [tuiSwitch]:before {
+        background-color: rgba(0, 0, 0, 0);
+        color: var(--color-primary);
+    }
+
+    input {
+        border: 1px solid var(--color-primary);
+        --tui-background-base: var(--color-primary);
+        --t-bg: rgba(216, 216, 216, 0) !important;
+    }
+}

@@ -1,0 +1,17 @@
+<div class="header">
+    <app-header />
+</div>
+
+<div class="link-shorter">
+    <app-link-shorter
+        (successCopied)="showToaster()"
+    />
+</div>
+@if (true) {
+    <div class="user-links">
+        <app-user-links-table />
+    </div>
+}
+<div class="footer">
+    <app-footer />
+</div>

@@ -1,0 +1,29 @@
+{{ 'HEADER.TITLE' | translate }}
+<input
+    tuiSwitch
+    type="checkbox"
+    [disabled]="false"
+    [ngModel]="false"
+    [tuiPlatform]="'ios'"
+    [size]="'m'"
+    (ngModelChange)="onThemeChange($event)"
+/>
+@if (isAuthenticated()) {
+    <button
+        tuiButton
+        appearance="outline"
+        (click)="logout()">
+        <tui-icon icon="log-out"></tui-icon>
+        {{ 'LABEL.LOGOUT' | translate }}
+    </button>
+} @else {
+    <button
+        tuiButton
+        appearance="outline"
+        (click)="navigateToLogin()">
+        <tui-icon icon="log-in"></tui-icon>
+        {{ 'LABEL.LOGIN' | translate }}
+    </button>
+}
+
+

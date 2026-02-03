@@ -1,0 +1,23 @@
+{
+	"ERROR": {
+		"INVALID_LINK": "Invalid Link"
+	},
+	"HEADER": {
+		"TITLE": "snappy.pw link shorter"
+	},
+	"LABEL": {
+		"FOOTER_TEXT": "Made with love by snappyname",
+		"GOBACK": "Go back",
+		"LOGIN": "Login",
+		"LOGOUT": "Log Out",
+		"ORIGINAL_LINK": "https://youtu.be/dQw4w9WgXcQ"
+	},
+	"LOGIN": {
+		"GITHUB_LOGIN": "LOGIN.GITHUB_LOGIN",
+		"GOOGLE_LOGIN": "LOGIN.GOOGLE_LOGIN"
+	},
+	"TOASTS": {
+		"LINK_IN_USE": "TOASTS.LINK_IN_USE",
+		"SUCCESS_COPY": "TOASTS.SUCCESS_COPY"
+	}
+}

@@ -1,0 +1,52 @@
+<p>link-shorter works!</p>
+
+<div class="input-lines">
+    <tui-textfield class="input-field">
+        @if (inputUrlControl.errors?.['url']) {
+            <label tuiLabel> {{ 'ERROR.INVALID_LINK' | translate }}</label>
+        }
+        <input
+            #originalLink
+            tuiTextfield
+            type="url"
+            placeholder="{{'LABEL.ORIGINAL_LINK' | translate }}"
+            [formControl]="inputUrlControl"
+            [invalid]="inputUrlControl.invalid" />
+    </tui-textfield>
+    @if (isAuthenticated()) {
+        <tui-textfield class="input-field">
+            <input #userLink
+                   tuiTextfield
+                   type="url"
+                   [invalid]="outputUrlControl.invalid"
+                   [formControl]="outputUrlControl"
+                   (input)="onUserInputLink($event)" />
+        </tui-textfield>
+        <button
+            appearance="primary"
+            tuiButton
+            [disabled]="inputUrlControl.invalid"
+            (click)="sendUserLinkRequest(originalLink.value, userLink.value)">
+            Short
+        </button>
+    } @else {
+        <button
+            appearance="primary"
+            tuiButton
+            [disabled]="inputUrlControl.invalid"
+            (click)="sendAnonymousLinkRequest(originalLink.value)">
+            Short
+        </button>
+    }
+</div>
+
+<tui-elastic-container>
+    @if (newLink()) {
+        <app-result-link
+            (linkCopied)="successCopied.emit()"
+            [link]="newLink()">
+        </app-result-link>
+    }
+</tui-elastic-container>
+
+

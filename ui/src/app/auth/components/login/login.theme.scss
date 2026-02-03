@@ -1,0 +1,8 @@
+app-login {
+    color: var(--color-text);
+    background-color: var(--color-primary);
+}
+
+app-login:before {
+    background-color: var(--color-bg);
+}

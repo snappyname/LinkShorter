@@ -1,0 +1,80 @@
+<table
+    tuiTable
+    class="table"
+    [columns]="columns">
+    <thead>
+    <tr tuiThGroup>
+        <th
+            tuiTh
+            [maxWidth]="200"
+            [minWidth]="200"
+            [resizable]="true"
+            [sticky]="true">
+            {{ 'LABEL.SHORT_LINK' | translate }}
+        </th>
+        <th tuiTh
+            [maxWidth]="200"
+            [minWidth]="200"
+            [resizable]="true"
+            [sticky]="true">
+            {{ 'LABEL.ORIGINAL_LINK' | translate }}
+        </th>
+        <th tuiTh
+            [maxWidth]="200"
+            [minWidth]="200"
+            [resizable]="true"
+            [sticky]="true">
+            {{ 'LABEL.CREATE_DATE' | translate }}
+        </th>
+        <th tuiTh
+            [maxWidth]="50"
+            [minWidth]="50"
+            [resizable]="true"
+            [sticky]="true">
+            <tui-icon
+                icon="@tui.pencil"
+            />
+        </th>
+    </tr>
+    </thead>
+    <tbody
+        tuiTbody
+        [data]="userLinks()">
+        @for (item of userLinks(); track item.id) {
+            <tr tuiTr>
+                <td
+                    *tuiCell="'originalLink'"
+                    tuiTd>
+                    {{ item.originalUrl }}
+                </td>
+
+                <td
+                    *tuiCell="'shortLink'"
+                    tuiTd>
+                    {{ item.shortUrl }}
+                </td>
+
+                <td
+                    *tuiCell="'createdAt'"
+                    tuiTd>
+                    {{ item.createdAt }}
+                </td>
+
+                <td
+                    *tuiCell="'actions'"
+                    tuiTd>
+                    <button
+                        appearance="outline"
+                        tuiButton
+                        type="button"
+                        (click)="deleteLink(item)"
+                    >
+                        <tui-icon
+                            icon="@tui.trash"
+                        />
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

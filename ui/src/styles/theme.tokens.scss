@@ -1,0 +1,17 @@
+@use 'light' as light;
+@use 'dark' as dark;
+
+$themes: (
+    light: (
+        bg: light.$color-bg,
+        text: light.$color-text,
+        primary: light.$color-primary,
+    ),
+    dark: (
+        bg: dark.$color-bg,
+        text: dark.$color-text,
+        primary: dark.$color-primary,
+        primary-hover: dark.$color-primary-hover,
+        error: dark.$color-error,
+    )
+);

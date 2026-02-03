@@ -1,0 +1,16 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-lines {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center
+}
+
+.input-field {
+    width: 300px;
+}

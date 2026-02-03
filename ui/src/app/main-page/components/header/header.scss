@@ -1,0 +1,33 @@
+:host {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 25px 6px 25px;
+    font-size: 20px;
+}
+
+[tuiSwitch]::after {
+    content: 'moon_stars';
+    justify-content: center;
+    font-family: 'Material Symbols Outlined', serif;
+    font-size: 3rem;
+    line-height: 0;
+
+    position: absolute;
+    display: grid;
+    place-items: center;
+    outline: none;
+}
+
+[tuiSwitch]:before {
+    --t-checked-icon: none;
+    content: 'sunny';
+    font-family: 'Material Symbols Outlined', serif;
+    font-size: 1rem;
+    line-height: 1;
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+}

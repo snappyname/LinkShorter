@@ -1,0 +1,26 @@
+{{ 'LABEL.LOGIN' | translate }}
+<button
+    appearance="primary"
+    tuiButton
+    type="button"
+    (click)="loginByGoogle()">
+    <tui-icon icon="@tui.fa.brands.google"></tui-icon>
+    <p>{{ "LOGIN.GOOGLE_LOGIN" | translate }}</p>
+</button>
+<button
+    appearance="primary"
+    tuiButton
+    type="button"
+    (click)="loginByGithub()">
+    <tui-icon icon="@tui.fa.brands.github"></tui-icon>
+    <p>{{ "LOGIN.GITHUB_LOGIN" | translate }}</p>
+</button>
+<br />
+<button
+    appearance="primary"
+    tuiButton
+    type="button"
+    (click)="navigateToRegister()">
+    {{ 'LABEL.GOBACK' | translate }}
+</button>
+

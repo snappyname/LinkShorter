@@ -1,0 +1,57 @@
+name: Upload
+
+on:
+  push:
+    branches: [ stage ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inject secrets into configs
+        run: |
+          export DB_PASSWORD_LINE="${{ secrets.DB_PASSWORD_LINE }}"
+          export JWT_KEY="${{ secrets.JWT_KEY }}"
+          export OAUTH_GOOGLE_SECRET="${{ secrets.OAUTH_GOOGLE_SECRET }}"
+          export OAUTH_GITHUB_SECRET="${{ secrets.OAUTH_GITHUB_SECRET }}"
+          export CORS_FRONTEND_URL="${{ secrets.CORS_FRONTEND_URL }}"
+
+          envsubst < WebApi/appsettings.json > WebApi/appsettings.json.tmp
+          mv WebApi/appsettings.json.tmp WebApi/appsettings.json
+
+
+          export POSTGRES_USER="${{ secrets.POSTGRES_USER }}"
+          export POSTGRES_PASSWORD="${{ secrets.POSTGRES_PASSWORD }}"
+
+          envsubst < docker-compose.yml > docker-compose.yml.tmp
+          mv docker-compose.yml.tmp docker-compose.yml.json
+
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          printf "%s" "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Upload repository to server
+        run: |
+          rsync -avz --delete \
+          ./ \
+          ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/app/
+
+      - name: Deploy on server
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          cd ~/app
+          sudo docker compose pull
+          sudo docker compose down
+          sudo docker compose up -d --build
+          EOF
+
+
+

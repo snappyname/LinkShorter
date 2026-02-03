@@ -1,0 +1,8 @@
+app-main-page {
+    color: var(--color-text);
+    background-color: var(--color-primary);
+}
+
+app-main-page:before {
+    background-color: var(--color-bg);
+}
