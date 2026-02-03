@@ -77,7 +77,7 @@ builder.Services.AddIdentityCore<User>()
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(
-        builder.Configuration.GetConnectionString("Database")
+        builder.Configuration.GetConnectionString("DefaultConnection")
     )
 );
 
