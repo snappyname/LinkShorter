@@ -77,7 +77,8 @@ builder.Services.AddIdentityCore<User>()
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(
-        builder.Configuration.GetConnectionString("DefaultConnection")
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        x => x.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)
     )
 );
 
@@ -92,10 +93,6 @@ WebApplication app = builder.Build();
 
 app.UseCors("Frontend");
 app.ApplyMigrations();
-if (app.Environment.IsDevelopment())
-{
-    
-}
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
