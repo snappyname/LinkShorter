@@ -12,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Inject secrets into configs
+      - name: Inject secrets into app config
         run: |
           export DB_PASSWORD_LINE="${{ secrets.DB_PASSWORD_LINE }}"
           export JWT_KEY="${{ secrets.JWT_KEY }}"
@@ -23,7 +23,8 @@ jobs:
           envsubst < WebApi/appsettings.json > WebApi/appsettings.json.tmp
           mv WebApi/appsettings.json.tmp WebApi/appsettings.json
 
-
+      - name: Inject secrets into docker config
+        run: |
           export POSTGRES_USER="${{ secrets.POSTGRES_USER }}"
           export POSTGRES_PASSWORD="${{ secrets.POSTGRES_PASSWORD }}"
 
