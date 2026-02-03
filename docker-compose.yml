@@ -57,9 +57,10 @@ services:
     environment:
       Redis__ConnectionString: "redis:6379"
     depends_on:
-      - redis
-      - db:
-          condition: service_healthy
+      redis:
+        condition: service_started
+      db:
+        condition: service_healthy
     networks:
       - dev
       
