@@ -91,10 +91,10 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
 WebApplication app = builder.Build();
 
 app.UseCors("Frontend");
-
+app.ApplyMigrations();
 if (app.Environment.IsDevelopment())
 {
-    app.ApplyMigrations();
+    
 }
 
 app.UseHttpsRedirection();
