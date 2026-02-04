@@ -1,6 +1,6 @@
 export const environment = {
 	production: true,
-	baseUrl: 'http://snappy.pw',
-	apiUrl: 'http://snappy.pw/api',
-	signalRUrl: 'http://snappy.pw/hubs/broadcast',
+	baseUrl: 'http://www.snappy.pw',
+	apiUrl: 'http://www.snappy.pw/api',
+	signalRUrl: 'http://www.snappy.pw/hubs/broadcast',
 };
